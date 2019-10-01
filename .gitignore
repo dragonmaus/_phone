@@ -1,0 +1,6 @@
+/.*history
+/.local/
+/.secret/
+/.ssh/
+/.termux/
+/bin/

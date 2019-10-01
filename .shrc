@@ -1,0 +1,12 @@
+HISTFILE=$HOME/.history
+HISTSIZE=12000
+P=$PREFIX
+alias c='termux-clipboard-set'
+alias lc='ls -C'
+alias ll='ls -Fl'
+alias ls='ls -1A --color=auto'
+alias n='c </dev/null'
+alias p='termux-clipboard-get'
+alias sudo='tsudo '
+set -o physical
+set -o vi
