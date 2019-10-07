@@ -7,6 +7,7 @@ Plug 'neomake/neomake'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'RRethy/vim-illuminate'
+Plug 'ledger/vim-ledger'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
