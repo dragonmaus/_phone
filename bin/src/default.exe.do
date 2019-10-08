@@ -23,7 +23,7 @@ case "$kind" in
 (script)
 	redo-ifchange "$file"
 
-	cat < "$file" > "$3"
+	cp -f "$file" "$3"
 	chmod +x "$3"
 	;;
 esac
