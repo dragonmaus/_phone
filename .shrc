@@ -4,5 +4,6 @@ P="$PREFIX"
 alias lc='ls -C'
 alias ll='ls -Fl'
 alias ls='ls -1A --color=auto'
+alias pstree='pstree -Tachgnpu'
 set -o physical
 set -o vi
