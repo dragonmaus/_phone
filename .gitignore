@@ -12,6 +12,7 @@
 /.termux/
 /bin/*
 /src/ext/
+/src/rust/*/
 !/bin/*.do
 !/bin/*/
 !/bin/all.list
