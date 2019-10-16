@@ -8,6 +8,8 @@ set -a
 ENV="$HOME/.shrc"
 PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 
+LC_COLLATE=C
+
 LEDGER_FILE=/sdcard/Sync/Ledger/ledger.journal
 
 set +a
