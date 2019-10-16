@@ -3,6 +3,7 @@
 *.exe
 .redo/
 /.*history
+/.cache/
 /.cargo/*/
 /.cargo/.*
 /.lesshst
