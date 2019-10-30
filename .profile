@@ -19,7 +19,7 @@ for d in $HOME/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/bin/ext $PATH
 do
 	d="$( realpath "$d" 2> /dev/null || echo "$d" )"
 	case ":$path:" in
-	(*:"$d":*) continue ;;
+	(*":$d:"*) continue ;;
 	esac
 	path="$path:$d"
 done
