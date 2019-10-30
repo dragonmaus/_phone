@@ -4,4 +4,3 @@ let g:Illuminate_delay = 0
 let g:lightline = { 'colorscheme': 'iceberg' }
 
 colorscheme iceberg
-highlight Comment gui=italic cterm=italic term=italic
