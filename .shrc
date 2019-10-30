@@ -10,6 +10,6 @@ alias pstree='pstree -Tachgnpu'
 set -o physical
 set -o vi
 
-trap "[[ -r '$HOME/.logout' ]] && . '$HOME/.logout'" EXIT KILL INT
+trap "[[ -r '$HOME/.logout' ]] && . '$HOME/.logout'" EXIT KILL
 
 eval $( ssh-agent -s )
