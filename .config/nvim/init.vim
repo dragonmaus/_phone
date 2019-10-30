@@ -1,11 +1,12 @@
 " Settings
-let g:is_ksh=1
+let g:asmsyntax = "nasm"
+let g:is_ksh = 1
 
 " Disable unwanted plugins
-let g:loaded_gzip=1
-let g:loaded_netrwPlugin=1
-let g:loaded_tarPlugin=1
-let g:loaded_zipPlugin=1
+let g:loaded_gzip = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_zipPlugin = 1
 
 " Options
 set backupcopy=yes

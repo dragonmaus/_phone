@@ -1,0 +1,1 @@
+exec '%s' -nostdlib -static -L"$home/lib" "$@"\n

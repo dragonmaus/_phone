@@ -1,12 +1,15 @@
 HISTFILE="$HOME/.history"
 HISTSIZE=12000
 P="$PREFIX"
+
 alias lc='ls -C'
 alias ll='ls -Fl'
 alias ls='ls -1A --color=auto'
 alias pstree='pstree -Tachgnpu'
+
 set -o physical
 set -o vi
+
 trap "[[ -r '$HOME/.logout' ]] && . '$HOME/.logout'" EXIT KILL INT
 
 eval $( ssh-agent -s )

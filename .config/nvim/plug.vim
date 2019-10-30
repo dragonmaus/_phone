@@ -1,4 +1,4 @@
-call plug#begin(stdpath('data').'/plug')
+call plug#begin(stdpath('data') . '/plug')
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cocopon/iceberg.vim'
