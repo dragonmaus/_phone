@@ -1,3 +1,4 @@
+askpass
 c
 cargo-foreach
 cdiff
@@ -8,3 +9,4 @@ p
 pathsort
 relpath
 shar
+ssh

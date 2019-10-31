@@ -36,12 +36,14 @@ PATH="$path"
 ENV="$HOME/.shrc"
 
 # Global configuration
+DISPLAY=  # fool ssh-add into using SSH_ASKPASS
 EDITOR="$( which nvim vim vi 2> /dev/null | head -1 )"
 LC_COLLATE=C
 
 # App-specific configuration
 LEDGER_FILE=/sdcard/Sync/Ledger/ledger.journal
 RIPGREP_CONFIG_PATH="$config_home/ripgrep/config"
+SSH_ASKPASS="$( which askpass )"
 
 set +a
 
