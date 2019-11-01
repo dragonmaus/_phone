@@ -15,7 +15,7 @@ data_home="${XDG_DATA_HOME:-"$HOME/.local/share"}"
 path=
 ifs="$IFS"
 IFS=:
-for d in $HOME/bin $HOME/.cargo/bin $HOME/.local/bin $HOME/bin/ext $PATH
+for d in "$HOME/bin" "$HOME/.cargo/bin" "$HOME/.local/bin" "$HOME/bin/ext" $PATH
 do
 	d="$( realpath "$d" 2> /dev/null || echo "$d" )"
 	case ":$path:" in
