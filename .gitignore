@@ -1,6 +1,9 @@
 *+
 *-
+*.a
 *.exe
+*.log
+*.o
 .redo/
 /.*history
 /.cache/
@@ -12,13 +15,13 @@
 /.termux/
 /bin/*
 /bin/src/bin/*
-/bin/src/musl/
 /src/ext/
 /src/magisk/
-/src/rust/*
+/src/rust/*.binary
+/src/rust/*/
 /tmp/
 !/bin/*.do
 !/bin/all.list
 !/bin/src/
-!/bin/src/bin/*.*
-!/src/rust/*.*
+!/bin/src/bin/*.do
+!/bin/src/bin/*.sh
