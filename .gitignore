@@ -10,11 +10,11 @@
 /.cargo/
 /.lesshst
 /.local/
-/.secret/
 /.ssh/
 /.termux/
 /bin/*
 /bin/src/bin/*
+/etc/secret/
 /src/ext/
 /src/magisk/
 /src/rust/*.binary

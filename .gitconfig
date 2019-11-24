@@ -1,2 +1,2 @@
 [include]
-	path = ~/.secret/gitconfig
+	path = ~/etc/secret/gitconfig

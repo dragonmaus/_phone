@@ -1,1 +1,1 @@
-redo-ifchange bin/clean src/rust/clean
+redo-ifchange bin/clean
