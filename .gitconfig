@@ -5,6 +5,7 @@
 	unskip = update-index --no-skip-worktree --
 [core]
 	autocrlf = false
+	sshCommand = ssha
 [push]
 	default = simple
 	followTags = true
