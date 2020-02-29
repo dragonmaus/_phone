@@ -1,2 +1,14 @@
+[alias]
+	pwd = rev-parse --show-prefix
+	root = rev-parse --show-toplevel
+	skip = update-index --skip-worktree --
+	unskip = update-index --no-skip-worktree --
+[core]
+	autocrlf = false
+[push]
+	default = simple
+	followTags = true
+
+# Secret stuff
 [include]
 	path = ~/etc/secret/gitconfig
