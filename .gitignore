@@ -6,11 +6,6 @@
 /.ssh/
 /.termux/
 /bin/
-/etc/secret/
-/src/ext/
-/src/magisk/
-/src/rust/*/
-/src/rust/*.binary
 /tmp/
 *+
 *-
