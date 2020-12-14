@@ -66,7 +66,7 @@ ENV=$CONF/shell/init.sh
 ## Global configuration
 DISPLAY= # fool ssh-add into using SSH_ASKPASS
 EDITOR=`which nvim vim vi 2> /dev/null | head -1`
-HOSTNAME=${HOSTNAME:-`hostname -s'}
+HOSTNAME=${HOSTNAME:-`hostname -s`}
 LC_COLLATE=C
 P=$PREFIX
 PAGER=less; MANPAGER="$PAGER -s"
