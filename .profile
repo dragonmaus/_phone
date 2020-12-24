@@ -24,7 +24,7 @@ case "$KSH_VERSION" in
   ;;
 esac
 
-# Enforce `separation of concerns' (login / interactive)
+# Enforce `separation of concerns' between login and interactive shells
 shell=`basename $SHELL`
 shell=${shell:-sh}
 case $- in
@@ -32,6 +32,9 @@ case $- in
   exec $shell -l -c 'exec $shell -i "$@"' $shell "$@"
   ;;
 esac
+
+# Pull in Nix configuration
+test -e ~/.nix-profile/etc/profile.d/nix.sh && . ~/.nix-profile/etc/profile.d/nix.sh
 
 # XDG directories
 CONF=${XDG_CONFIG_HOME:-~/.config}
@@ -43,7 +46,13 @@ ifs=$IFS
 IFS=:
 for d in ~/bin ~/.cargo/bin ~/.local/bin ~/bin/ext $PATH
 do
-  d=`readlink -f $d 2> /dev/null || echo $d`
+  case /$d/ in
+  (*/.nix-profile/*|*/nix/*)
+    ;;
+  (*)
+    d=`readlink -f $d 2> /dev/null || echo $d`
+    ;;
+  esac
   case ":$path:" in
   (*:$d:*)
     continue
@@ -53,6 +62,9 @@ do
 done
 IFS=$ifs
 path=${path#:}
+
+# Ensure that correct hostname is set
+su -c hostname `su -c settings get global device_name`
 
 # Set environment
 set -a
@@ -66,18 +78,16 @@ ENV=$CONF/shell/init.sh
 ## Global configuration
 DISPLAY= # fool ssh-add into using SSH_ASKPASS
 EDITOR=`which nvim vim vi 2> /dev/null | head -1`
-HOSTNAME=${HOSTNAME:-`hostname -s`}
+HOSTNAME=`hostname -s`
 LC_COLLATE=C
 P=$PREFIX
 PAGER=less; MANPAGER="$PAGER -s"
 USER=${USER:-`id -nu`}
 
 ## App-specific configuration
-LESS=FMRi
+LESS=FMRXi
+LESSHISTFILE=-
 RIPGREP_CONFIG_PATH=$CONF/ripgrep/config
 SSH_ASKPASS=`which askpass`
 
 set +a
-
-# Set umask
-umask 077

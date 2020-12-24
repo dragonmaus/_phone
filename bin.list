@@ -5,7 +5,6 @@ cargo-foreach
 cdiff
 dircp
 gensum
-git-ignore
 lndir
 n
 p
