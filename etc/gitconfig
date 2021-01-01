@@ -1,0 +1,4 @@
+[core]
+	sshCommand = ssha
+[credential]
+	helper = store
