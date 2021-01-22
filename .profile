@@ -1,41 +1,14 @@
 # ~/.profile
-
-# User-specific shell profile
-
-# Ensure that `echo' is sane
-case "$KSH_VERSION" in
-(*'MIRBSD KSH'*|*'LEGACY KSH'*|*'PD KSH'*)
-    echo() {
-        print -R "$@"
-    }
-    ;;
-(*)
-    echo() {
-        case "$1" in
-        (-n)
-            shift
-            printf '%s' "$*"
-            ;;
-        (*)
-            printf '%s\n' "$*"
-            ;;
-        esac
-    }
-    ;;
-esac
+# User-specific login shell profile
 
 # Enforce `separation of concerns' between login and interactive shells
 shell=$(basename "$SHELL")
-shell=${shell:-sh}
+: ${shell:=sh}
 case $- in
 (*i*)
-    exec $shell -l -c 'exec $shell -i "$@"' $shell "$@"
-    ;;
+	exec $shell -l -c 'exec $shell -i "$@"' $shell "$@"
+	;;
 esac
-
-# Pull in Nix configuration
-nix=~/.nix-profile/etc/profile.d/nix.sh
-[[ -e $nix ]] && . $nix
 
 # XDG directories
 CONF=${XDG_CONFIG_HOME:-~/.config}
@@ -45,21 +18,15 @@ DATA=${XDG_DATA_HOME:-~/.local/share}
 path=
 ifs=$IFS
 IFS=:
-for d in ~/bin ~/.cargo/bin ~/.local/bin ~/.local/games ~/bin/ext $PATH
+for d in ~/bin ~/sbin ~/.cargo/bin ~/.local/bin $PATH
 do
-    case /$d/ in
-    (*/.nix-profile/*|*/nix/*)
-        ;;
-    (*)
-        d=$(realpath $d 2> /dev/null || echo $d)
-        ;;
-    esac
-    case ":$path:" in
-    (*:$d:*)
-        continue
-        ;;
-    esac
-    path=$path:$d
+	d=$(readlink -f $d 2> /dev/null || echo $d)
+	case ":$path:" in
+	(*:$d:*)
+		continue
+		;;
+	esac
+	path=$path:$d
 done
 IFS=$ifs
 path=${path#:}
@@ -71,19 +38,18 @@ su -c hostname `su -c settings get global device_name`
 set -a
 
 ## Paths
-MANPATH=$DATA/man:
+MANPATH=$DATA/man:$MANPATH
 PATH=$path
 
 ## Shell configuration
-ENV=$CONF/shell/init.sh
+ENV=~/.shrc
 
 ## Global configuration
 DISPLAY= # fool ssh-add into using SSH_ASKPASS
-EDITOR=$(which nvim vim vi 2> /dev/null | head -1)
+EDITOR=nvim
 HOSTNAME=$(hostname -s)
-LC_COLLATE=C
 P=$PREFIX
-PAGER=less; MANPAGER="$PAGER -s"
+PAGER=less
 USER=${USER:-$(id -nu)}
 
 ## App-specific configuration

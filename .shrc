@@ -1,0 +1,85 @@
+# ~/.shrc
+# User-specific interactive shell configuration
+
+# Clean up environment
+unset HISTFILE
+unset LS_COLORS
+
+# Define aliases
+alias doas='doas '
+alias lc='ls -C'
+alias ll='ls -Fl'
+alias ls='ls -1AN --color=auto'
+alias pstree='pstree -Tachlpu'
+
+# Define functions
+. echo.sh
+ppwd() {
+	local h=$(cd ~ && pwd)
+	local p=$PWD/
+	case "$p" in
+	($h/*)
+		p=\~${p#$h}
+		;;
+	esac
+	echo "${p%/}"
+}
+
+# Set shell options
+# not all shells have `set -o physical'; brute force if necessary
+if COLUMNS=4 set -o | grep -q '^physical '
+then
+	set -o physical
+else
+	cd() {
+		command cd "$@" && PWD=$(readlink -f .)
+	}
+fi
+set -o vi
+
+# Set prompt
+if [ -n "$KSH_VERSION" ]
+then
+	PS1=$(
+		typeset cyan='\001\e[36m\001'
+		typeset green='\001\e[32m\001'
+		typeset magenta='\001\e[35m\001'
+		typeset ppwd='$(e=$?; ppwd; exit $e)'
+		typeset reset='\001\e[m\001'
+		typeset yellow='\001\e[33m\001'
+		print -n '\001\r'
+		case "$TERM" in
+		(linux|linux-*)
+			;;
+		(*)
+			print -n '\001\e];'
+			print -n '$HOSTNAME'
+			print -n ' '
+			print -n "[$ppwd]"
+			print -n ' '
+			print -n "$(basename $SHELL)"
+			print -n '\a\001'
+			;;
+		esac
+		print -n "($cyan\$USER$reset@$magenta\$HOSTNAME$reset)"
+		print -n ' '
+		print -n "$green\$(date +%T)$reset"
+		print -n ' '
+		print -n "[$yellow$ppwd$reset]"
+		print
+		print -n 'τ '
+	)
+else
+	PS1=$(
+		echo -n '($USER@$HOSTNAME)'
+		echo -n ' '
+		echo -n '$(date +%T)'
+		echo -n ' '
+		echo -n '[$(e=$?; ppwd; exit $e)]'
+		echo
+		echo -n 'τ '
+	)
+fi
+
+# Set exit trap
+trap -- '[ -r ~/.logout ] && . ~/.logout' EXIT
