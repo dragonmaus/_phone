@@ -89,7 +89,7 @@ USER=${USER:-$(id -nu)}
 ## App-specific configuration
 LESS=FMRXi
 LESSHISTFILE=-
-RIPGREP_CONFIG_PATH=$CONF/ripgrep/config
+RIPGREP_CONFIG_PATH=$CONF/ripgrep.conf
 SSH_ASKPASS=$(which askpass)
 
 set +a
