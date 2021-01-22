@@ -1,2 +1,2 @@
-# home
-My phone's home directory.
+# phone
+## Termux on OnePlus 5t
