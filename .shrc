@@ -2,6 +2,7 @@
 # User-specific interactive shell configuration
 
 # Clean up environment
+HISTFILE=/dev/null
 unset HISTFILE
 unset LS_COLORS
 
