@@ -1,2 +1,2 @@
-#!/data/data/com.termux/files/usr/bin/mksh
+#!/bin/sh
 exec termux-clipboard-get "$@"
