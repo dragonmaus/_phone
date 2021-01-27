@@ -2,6 +2,8 @@ abspath
 cargo-foreach
 cdiff
 dircp
+fnchk
+fsync
 gensum
 git-ignore
 lndir
