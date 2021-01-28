@@ -44,6 +44,7 @@ DISPLAY=  # fool ssh-add into using SSH_ASKPASS
 EDITOR=nvim
 HOSTNAME=$(hostname -s)
 P=$PREFIX
+USER=${USER:-$(id -nu)}
 
 ## App-specific configuration
 LESS=Ri
