@@ -4,15 +4,16 @@
 # Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
 # homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
 # absolute path. No other format is supported.
-#
+# 
 XDG_DESKTOP_DIR="/sdcard/Desktop"
-XDG_DOCUMENTS_DIR="/sdcard/Documents"
 XDG_DOWNLOAD_DIR="/sdcard/Download"
+XDG_TEMPLATES_DIR="/sdcard/Templates"
+XDG_PUBLICSHARE_DIR="/sdcard/Public"
+XDG_PRIVATESHARE_DIR="/sdcard/Sync"
+XDG_DOCUMENTS_DIR="/sdcard/Documents"
 XDG_MUSIC_DIR="/sdcard/Music"
 XDG_PICTURES_DIR="/sdcard/Pictures"
 XDG_BACKGROUNDS_DIR="/sdcard/Pictures/Backgrounds"
 XDG_SCREENSHOTS_DIR="/sdcard/Pictures/Screenshots"
-XDG_PUBLICSHARE_DIR="/sdcard/Public"
-XDG_PRIVATESHARE_DIR="/sdcard/Sync"
-XDG_TEMPLATES_DIR="/sdcard/Templates"
 XDG_VIDEOS_DIR="/sdcard/Videos"
+XDG_BACKUPS_DIR="/sdcard/Backups"
