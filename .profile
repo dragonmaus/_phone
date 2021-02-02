@@ -1,7 +1,7 @@
 # ~/.profile
-# User-specific login shell profile
+# User-level login shell configuration
 
-# Enforce `separation of concerns' between login and interactive shells
+# Enforce separation of concerns between login and interactive shells
 shell=$(basename $SHELL)
 case $- in
 (*i*)
@@ -33,10 +33,10 @@ su -c hostname $(su -c settings get global device_name)
 set -a
 
 ## Paths
-MANPATH=~/.local/share/man:$MANPATH
+MANPATH=~/.local/share/man:
 PATH=$path
 
-## Shell configuration
+## Interactive shell configuration
 ENV=~/.shrc
 
 ## Global configuration
@@ -44,9 +44,9 @@ DISPLAY=  # fool ssh-add into using SSH_ASKPASS
 EDITOR=nvim
 HOSTNAME=$(hostname -s)
 P=$PREFIX
-USER=${USER:-$(id -nu)}
+USER=$(id -nu)
 
-## App-specific configuration
+## Command-specific configuration
 LESS=Ri
 LESSHISTFILE=-
 PYTHONUSERBASE=~/.local/python
