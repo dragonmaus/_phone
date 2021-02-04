@@ -1,6 +1,7 @@
 *-
 /.cache/
 /.cargo/
+/.gnupg/
 /.local/
 /.ssh/
 /.termux/

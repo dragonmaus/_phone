@@ -49,6 +49,7 @@ USER=$(id -nu)
 ## Command-specific configuration
 LESS=Ri
 LESSHISTFILE=-
+PASSWORD_STORE_DIR=/sdcard/.password-store
 PYTHONUSERBASE=~/.local/python
 RIPGREP_CONFIG_PATH=~/.config/ripgrep.conf
 SSH_ASKPASS=$(which askpass)
