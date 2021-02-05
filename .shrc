@@ -63,6 +63,10 @@ case "$KSH_VERSION" in
 	;;
 esac
 
+# Set other environment variables
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # Set up exit trap
 trap -- '[ -r ~/.logout ] && . ~/.logout' EXIT
 

@@ -1,4 +1,8 @@
+[commit]
+	gpgsign = true
 [core]
 	sshCommand = ssha
 [credential]
 	helper = store
+[gpg]
+	program = gpg2
