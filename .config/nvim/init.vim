@@ -11,6 +11,7 @@ let g:loaded_tarPlugin = 1
 let g:loaded_zipPlugin = 1
 
 " Options
+set background=light
 set backupcopy=yes
 set colorcolumn=81,+1
 set diffopt+=algorithm:patience
